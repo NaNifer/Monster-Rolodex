@@ -8,25 +8,40 @@ class App extends Component {
     super();
 
     this.state = {
-      monster1: {
-       name: "Linda"
-      },
-      monster2: {
-       name: "Frank"
-      },
-      monster3: {
-        name:"Jackie"
-      },
+      monsters: [
+        {
+          name: "Linda",
+          id: 12345,
+        },
+        {
+          name: "Frank",
+          id: 12346,
+        },
+        {
+          name: "Jackie",
+          id: 12347,
+        },
+        {
+          name: "Nifer",
+          id: 12348,
+        },
+      ]
+
     };
 
   }
-  render () {
-    return <div className='App'>
-      <h1>{this.state.monster1.name}</h1>
-      <h1>{this.state.monster2.name}</h1>
-      <h1>{this.state.monster3.name}</h1>
-    </div>
+  render() {
+    return (
+      <div className='App'>
+        {this.state.monsters.map((monster) => {
+          return (
+            <div key={monster.id}>
+              <h1>{monster.name}</h1>
+            </div>
+          );
+        })}
+      </div>
+    )
   }
-}
 
 export default App;
