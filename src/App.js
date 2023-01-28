@@ -8,7 +8,9 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: [],
+      monsters: [
+        user: 
+      ],
     };
     console.log('constructor');
   }
