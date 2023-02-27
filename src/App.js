@@ -6,9 +6,24 @@ import './App.css';
 
 
 const App = () => {
-  const [searchField, setSearchField ] = useState('');
+  const [searchField, setSearchField] = useState('');
 
-}
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  }
+
+  return (
+    <div className='App'>
+      <h1 className='app-title'>Monster Rolodex</h1>
+      <SearchBox
+        onChangeHandler={onSearchChange}
+        placeholder='search monsters'
+        className='monsters-search-box' />
+      <CardList monsters={filteredMonsters} />
+    </div>
+  );
+};
 
 // class App extends Component {
 //   constructor() {
@@ -34,12 +49,12 @@ const App = () => {
 //       );
 //   }
 
-//   onSearchChange = (event) => {
-//     const searchField = event.target.value.toLocaleLowerCase()
-//     this.setState(() => {
-//       return { searchField };
-//     });
-//   }
+  // onSearchChange = (event) => {
+  //   const searchField = event.target.value.toLocaleLowerCase()
+  //   this.setState(() => {
+  //     return { searchField };
+  //   });
+  // }
 
 //   render() {
 //     const { monsters, searchField } = this.state;
